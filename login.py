@@ -82,7 +82,7 @@ def login_account(playwright, USER, PWD):
         success_text = "You are the exclusive owner of the following domains."
         if page.query_selector(f"text={success_text}"):
             log(f"✅ 账号 {USER} 登录成功")
-            time.sleep(5)
+            time.sleep(10)
         else:
             failed_msg = None
             for msg in fail_msgs:
@@ -104,7 +104,7 @@ def run():
     with sync_playwright() as playwright:
         for acc in accounts:
             login_account(playwright, acc["username"], acc["password"])
-            time.sleep(2)
+            time.sleep(30)
 
 if __name__ == "__main__":
     run()
